@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<head> <!-- head declaration contains information about the HTML document-->
+    <meta name="viewport" content="width=device-width, intial-scale=1.0"> <!--sets the visible area to the width of the device, zoomed at a scale of 1.0-->
+    <meta charset="utf-8">
+    <title>Login / Sign Up</title>
+    <!--href values are currently placeholders-->
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!---------------------------------------------------------------------------------------------------------->
+        <!--Account Login Form-------------------------------------------------------------------------------------->
+        <form class="form form--hidden" id="login">
+            <h1 class="form__title">Login</h1>
+            <div class="form__message form__message--error"></div>
+            <div classs="form__input-group">
+                <!--HTML input elements for text, time, dates, etc-->
+                <!--input username-->
+                <input type="text" id="loginUsername" class="form__input" autofocus placeholder="Username or email">
+                <div class="form__input-error-message"> </div>
+                
+                <!--input password-->
+                <div class="form__input-group">
+                    <input type="text" id="loginPassword" class="form__input" autofocus placeholder="Password">
+                    <div class="form__input-error--message"></div>
+                </div>
+                <!--submit button-->
+                <button class="form__button" type="submit">Login</button>
+                <!--Forgot password-->
+                <p class="form__text">
+                    <a class="form__link" href = "./" id="linkForgotPassword">Forgot your password?</a>
+                </p>
+                <!--Sign up-->
+                <p class="form__text">
+                    <a class="form__link" href="./" id="linkCreateAccount">Create New Account</a>
+                </p>
+            </div>
+        </form>
+        <!--------------------------------------------------------------------------------------------------------->
+        <!--Create account form------------------------------------------------------------------------------------>
+        <form class="form" id="createAccount">
+            <h1 class="form__title">Create Account</h1>
+            <div class="form__message form__message--error"></div>
+            <div classs="form__input-group">
+                <!--HTML input elements for text, time, dates, etc-->
+                <!--input username-->
+                <input type="text" id="signupUsername" class="form__input" autofocus placeholder="Username">
+                <div class="form__input-error-message"> </div>
+                <!--Email address-->
+                <input type="text" id="signupEmail" class="form__input" autofocus placeholder="Email Addresss">
+                <div class="form__input-error-message"> </div>
+                
+                <!--input password-->
+                <div class="form__input-group">
+                    <input type="password" id="signupPassword" class="form__input" autofocus placeholder="Password">
+                    <div class="form__input-error--message"></div>
+                </div>
+                <div class="form__input-group">
+                    <input type="password" id="signupPassword" class="form__input" autofocus placeholder="Confirm Password">
+                    <div class="form__input-error--message"></div>
+                </div>
+                <!--submit button-->
+                <button class="form__button" type="submit">Continue</button>
+                
+                <!--Back to Login screen-->
+                <p class="form__text">
+                    <a class="form__link" href="./" id="linkLogin">Already have an account? Sign in</a>
+                </p>
+            </div>
+        </form>
+        <!--------------------------------------------------------------------------------------------------------->
+        <!--Forgot password---------------------------------------------------------------------------------------->
+        <form class="form form--hidden" id="forgotPassword">
+            <h1 class="form__title">Recover Password</h1>
+            <p class="form__text">Enter your email address and we will send you your password</p>
+            <div class="form__message form__message--error"></div>
+                <div class="form__input-group">
+                <input type="text" id="pwEmail" class="form__input" autofocus placeholder="Email Addresss">
+                    <div class="form__input-error-message"> </div>
+                </div>
+                <!--submit button-->
+                <button class="form__button" type="submit">Send Email</button>
+                <!--Back to Login screen-->
+                <p class="form__text">
+                    <a class="form__link" href="./" id="linkLogin2">Already have an account? Sign in</a>
+                </p>
+        </form>
+    </div>
+
+    <script src="./src/main.js"></script>
+</body>
