@@ -4,6 +4,7 @@
  * element.parentElement() grabs the parent input group of the input field (i.e. username)
  * and sets the message text of the input message element
  * 
+ * 
  * ****************************************************************
  */
  function setFormMessage(formElement, messageType, message) {
@@ -16,7 +17,7 @@
 
 function setInputError(inputElement, message) {
     inputElement.classList.add("form__input--error");
-   //inputElement.classList.remove("form__message--success");
+    inputElement.classList.remove("form__input--success");
     inputElement.parentElement.querySelector(".form__input-error-message").textContent = message;
 }
 
