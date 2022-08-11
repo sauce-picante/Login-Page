@@ -63,7 +63,7 @@ function usernameLength(inputText) {
 
 function validPassword(inputText) {
     const passwordRegex = /^(?=.{8,}$)(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])(?=.*?\W).*$/g;
-    return (passwordRegex.test(inputText));
+    
 }
 
 function comparePasswords(inputText, password) {
