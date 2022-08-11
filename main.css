@@ -118,11 +118,11 @@ body {
 
 .form__button:hover {
     background: var(--color-primary-dark);
-    transition: 0.7s;
+    transition: 0.4s;
 }
 
 .form__button:active {
-    transform: scale(0.98);
+    transform: scale(0.90);
 }
 
 .form__text-align {
