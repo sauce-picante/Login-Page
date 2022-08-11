@@ -1,9 +1,12 @@
-/******************************************************************
- *********  JavaScript code for the login page
- *
+/*****************************************************************
+ *      Functions to set and clear error and success messages
+ * 
+ * element.parentElement() grabs the parent input group of the input field (i.e. username)
+ * and sets the message text of the input message element
  * 
  * ****************************************************************
  */
+
  function setFormMessage(formElement, messageType, message){
     const messageElement = formElement.querySelector(".form--message");
 
@@ -12,12 +15,6 @@
     messageElement.classList.add(`form__message--${messageType}`);
 }
 
- /*
-  * Functions to set and clear error and success messages
-  *
-  *  element.parentElement() grabs the parent input group of the input field (i.e. username)
-  *  and sets the message text of the input message element
-  */
 function setInputError(inputElement, message) {
     inputElement.classList.add("form__input--error");
     inputElement.parentElement.querySelector(".form__input-error-message").textContent = message;
@@ -35,7 +32,7 @@ function clearInputSuccess(inputElement){
     inputElement.parentElement.querySelector(".form__input-success-message").textContent = "";
 }
 /**********************************************************************
- *              Input Validation  
+ *             Account Creation Input Validation  
  * 
  * Function for username and password character validation
  * username: No special characters allowed
@@ -46,11 +43,17 @@ function clearInputSuccess(inputElement){
  * password regex will look for 8 characters, at least one upper and lower case letter, 
  * at least one special character and at aleast one number.
  * 
+ *   NOTE: Testing for a valid email address through a regular expression
+ * is not good practice. This could potentially filter out unconventional
+ * but perfectly valid email addresses.
+ *
+ * TO DO: Find a fancier way to validate email
+ * 
  * TO DO: Fix Valid Username prompt upon mouse clicking the field
  */
 function invalidCharacters(inputText){
     const invalidRegex = /[^a-zA-Z0-9]/g;
-    return (invalidRegex.test(inputText));
+    return ((typeof inputText === 'undefined' || inputText === null || inputText === "") ? true : invalidRegex.test(inputText));
 }
 
 function usernameLength(inputText){
@@ -71,12 +74,6 @@ function comparePasswords(inputText, password){
     }
     return (inputText == password);
 }
-
-//  NOTE: Testing for a valid email address through a regular expression
-//  is not good practice. This could potentially filter out unconventional
-//  but perfectly valid email addresses.
-//
-//  TO DO: Find a fancier way to validate email
 function validEmail(inputText){
     const emailRegex= / \S+@\S+\.\S+/;
     return emailRegex.test(inputText);
