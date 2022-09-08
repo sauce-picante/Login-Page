@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-ggg
+
 <body>
     <div class="container">
         <!---------------------------------------------------------------------------------------------------------->
@@ -50,18 +50,28 @@ ggg
                 <div classs="form__input-group">
                 <!--HTML input elements for text, time, dates, etc-->
                 <!--input username-->
+                <p class="form__text">Create Username</p>
                 <input type="text" id="signupUsername" class="form__input" autofocus placeholder="Username">
                     <div class="form__input-error-message"> </div>
                     <div class="form__input-success-message"></div>
                 </div>
                 <!--Email address-->
                 <div class="form__input-group">
-                <input type="text" id="signupEmail" class="form__input" autofocus placeholder="Email Addresss">
+                    <p class="form__text">Enter Email Address</p>
+                    <input type="text" id="signupEmail" class="form__input" autofocus placeholder="Email Addresss">
                     <div class="form__input-error-message"> </div>
+                    <div class="form__input-success-message"></div>
+                </div>
+                <!--User's Date of Birth-->
+                <div class = "form__input-group">
+                    <p class = "form__text">Enter Birthdate</p>
+                    <input type="text" id="userDOB" class="form__input" autofocus placeholder="MM/DD/YYYY">
+                    <div class="form__input-error-message"></div>
                     <div class="form__input-success-message"></div>
                 </div>
                 <!--input password-->
                 <div class="form__input-group">
+                    <p class="form__text">Create Password</p>
                     <input type="password" id="signupPassword" class="form__input" autofocus placeholder="Password">
                     <div class="form__input-error-message"></div>
                     <div class="form__input-success-message"></div>
@@ -99,5 +109,5 @@ ggg
         </form>
     </div>
     
-    <script src="./src/main.js"></script>
+    <script src="./main.js"></script>
 </body>
