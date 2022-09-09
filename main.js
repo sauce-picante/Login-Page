@@ -1,6 +1,6 @@
 /**
  *      TO-DO LIST:
- *      Add age verification
+ *      Figure out why background colors change only when input is typed
  *      Learn how to organize into seperate JS files
  *      Learn how to bundle together for deployment?
  *      "Minify" the code
@@ -173,21 +173,20 @@ document.addEventListener("DOMContentLoaded", () => {
                         clearInputSuccess(inputElement);
                         clearInputError(inputElement);
                         setInputError(inputElement, "Username must be at least 4 characters long.");
-                    })
+                    });
                 } else if (invalidCharacters(event.target.value) === true) {
                     createAccountForm.addEventListener("submit", event => {
                         //event.preventDefault();
                         clearInputSuccess(inputElement);
                         clearInputError(inputElement);
                         setInputError(inputElement, "Username may contain alphanumeric characters only.");
-                    })
+                    });
                 } else if (invalidCharacters(event.target.value) === false) {
                     createAccountForm.addEventListener("submit", event => {
                         //event.preventDefault();
-                        clearInputSuccess(inputElement);
                         clearInputError(inputElement);
                         setInputSuccess(inputElement, "Username is valid!");
-                    })
+                    });
                 }
 
             }
@@ -196,17 +195,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (validEmail(event.target.value)) {
                     createAccountForm.addEventListener("submit", event => {
                         //event.preventDefault();
-                        clearInputSuccess(inputElement);
                         clearInputError(inputElement);
                         setInputSuccess(inputElement, "Email address is valid");
-                    })
+                    });
                 } else if(!(validEmail(event.target.value))){
                     createAccountForm.addEventListener("submit", event => {
                         //event.preventDefault();
                         clearInputSuccess(inputElement);
                         clearInputError(inputElement);
                         setInputError(inputElement, "Please enter a valid email address");
-                    })
+                    });
                 }
             }
              // Password
@@ -214,10 +212,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (validPassword(event.target.value)) {
                     createAccountForm.addEventListener("submit", event => {
                         //event.preventDefault();
-                        clearInputSuccess(inputElement);
                         clearInputError(inputElement);
                         setInputSuccess(inputElement, "Password is valid!");
-                    })
+                    });
                 } else if (!(validPassword(event.target.value))) {
                     createAccountForm.addEventListener("submit", event => {
                         //event.preventDefault();
@@ -226,7 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         setInputError(inputElement, "Password must: Be at least 8 characters long. " +
                             "Contain at least one number, one special character," +
                             " an upper and a lower chase letter");
-                    })
+                    });
                 }
             }
             // Confirm Password
@@ -235,27 +232,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 if(validPassword(password) && comparePasswords(event.target.value, password)) {
                 createAccountForm.addEventListener("submit", event => {
                     //event.preventDefault();
-                    clearInputSuccess(inputElement);
                     clearInputError(inputElement);
                     setInputSuccess(inputElement, "Passwords match!");
-                })
+                });
             } else if (comparePasswords(event.target.value, password) === false) {
                 createAccountForm.addEventListener("submit", event => {
                     //event.preventDefault();
                     clearInputSuccess(inputElement);
                     clearInputError(inputElement);
                     setInputError(inputElement, "Passwords do not match");
-                })
+                });
             }
         }
             //Verify user's age
             if(event.target.id === "userDOB"){
                 if(validBirthday(event.target.value)){
                 createAccountForm.addEventListener("submit", event => {
-                    event.preventDefault();
-                    clearInputSuccess(inputElement);
+                    event.preventDefault();;
                     clearInputError(inputElement);
-                    setInputSuccess(inputElement,"happy bday");
+                    setInputSuccess(inputElement,"");
                 })
                 } else if(validBirthday(event.target.value) === false){
                     createAccountForm.addEventListener("submit", event => {
