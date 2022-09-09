@@ -62,6 +62,9 @@ function clearInputSuccess(inputElement) {
  * but perfectly valid email addresses.
  *
  *  TO DO: Find a fancier way to validate email
+ * 
+ * DATE OF BIRTH: Regex will look for the date format of MM/DD/YYYY. The user must be at least 13 years
+ * of age.
  */
 function invalidCharacters(inputText) {
     const invalidRegex = /[^a-zA-Z0-9]/g;
@@ -99,7 +102,7 @@ function validBirthday(inputText){
     } else {
         let tokens = inputText.split("/");
         let currentDay = new Date();
-        let userDOB = new Date(tokens[1] + "/" + tokens[0] + "/" + tokens[2]);
+        let userDOB = new Date(tokens[0] + "/" + tokens[1] + "/" + tokens[2]);
         if(currentDay.getFullYear() - userDOB.getFullYear() > 13){
             return true;
         } else {
@@ -166,20 +169,23 @@ document.addEventListener("DOMContentLoaded", () => {
             if (event.target.id === "signupUsername") {
                 if (event.target.value.length > 0 && event.target.value.length < 4) {
                     createAccountForm.addEventListener("submit", event => {
+                        //event.preventDefault();
                         clearInputSuccess(inputElement);
                         clearInputError(inputElement);
                         setInputError(inputElement, "Username must be at least 4 characters long.");
                     })
                 } else if (invalidCharacters(event.target.value) === true) {
                     createAccountForm.addEventListener("submit", event => {
+                        //event.preventDefault();
                         clearInputSuccess(inputElement);
-                        clearInputError(inputElement)
+                        clearInputError(inputElement);
                         setInputError(inputElement, "Username may contain alphanumeric characters only.");
                     })
                 } else if (invalidCharacters(event.target.value) === false) {
                     createAccountForm.addEventListener("submit", event => {
+                        //event.preventDefault();
                         clearInputSuccess(inputElement);
-                        clearInputError(inputElement)
+                        clearInputError(inputElement);
                         setInputSuccess(inputElement, "Username is valid!");
                     })
                 }
@@ -189,14 +195,14 @@ document.addEventListener("DOMContentLoaded", () => {
             if (event.target.id === "signupEmail") {
                 if (validEmail(event.target.value)) {
                     createAccountForm.addEventListener("submit", event => {
-                        event.preventDefault();
+                        //event.preventDefault();
                         clearInputSuccess(inputElement);
                         clearInputError(inputElement);
                         setInputSuccess(inputElement, "Email address is valid");
                     })
                 } else if(!(validEmail(event.target.value))){
                     createAccountForm.addEventListener("submit", event => {
-                        event.preventDefault();
+                        //event.preventDefault();
                         clearInputSuccess(inputElement);
                         clearInputError(inputElement);
                         setInputError(inputElement, "Please enter a valid email address");
@@ -207,12 +213,14 @@ document.addEventListener("DOMContentLoaded", () => {
              if (event.target.id === "signupPassword") {
                 if (validPassword(event.target.value)) {
                     createAccountForm.addEventListener("submit", event => {
+                        //event.preventDefault();
                         clearInputSuccess(inputElement);
-                        clearInputError(inputElement)
+                        clearInputError(inputElement);
                         setInputSuccess(inputElement, "Password is valid!");
                     })
                 } else if (!(validPassword(event.target.value))) {
                     createAccountForm.addEventListener("submit", event => {
+                        //event.preventDefault();
                         clearInputSuccess(inputElement);
                         clearInputError(inputElement);
                         setInputError(inputElement, "Password must: Be at least 8 characters long. " +
@@ -226,25 +234,41 @@ document.addEventListener("DOMContentLoaded", () => {
             if (event.target.id === "confirmPassword"){
                 if(validPassword(password) && comparePasswords(event.target.value, password)) {
                 createAccountForm.addEventListener("submit", event => {
+                    //event.preventDefault();
                     clearInputSuccess(inputElement);
-                    clearInputError(inputElement)
+                    clearInputError(inputElement);
                     setInputSuccess(inputElement, "Passwords match!");
                 })
             } else if (comparePasswords(event.target.value, password) === false) {
                 createAccountForm.addEventListener("submit", event => {
-                    event.preventDefault();
+                    //event.preventDefault();
                     clearInputSuccess(inputElement);
-                    clearInputError(inputElement)
+                    clearInputError(inputElement);
                     setInputError(inputElement, "Passwords do not match");
                 })
             }
         }
             //Verify user's age
-            if(event.target.id === "userAge"){
-                //finish age verification
+            if(event.target.id === "userDOB"){
+                if(validBirthday(event.target.value)){
+                createAccountForm.addEventListener("submit", event => {
+                    event.preventDefault();
+                    clearInputSuccess(inputElement);
+                    clearInputError(inputElement);
+                    setInputSuccess(inputElement,"happy bday");
+                })
+                } else if(validBirthday(event.target.value) === false){
+                    createAccountForm.addEventListener("submit", event => {
+                        event.preventDefault();
+                        clearInputSuccess(inputElement);
+                        clearInputError(inputElement);
+                        setInputError(inputElement,"Please enter a valid date.");
+                    })
+                }
             }
             // Clear messages when input is detected
-            inputElement.addEventListener("input", event => {
+            inputElement.addEventListener("input", event =>{
+                //event.preventDefault();
                 clearInputSuccess(inputElement);
                 clearInputError(inputElement);
 
