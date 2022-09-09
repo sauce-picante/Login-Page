@@ -3,8 +3,9 @@ body {
     --color-primary-dark: #353435;
     --color-text: #a77b46;
     --color-secondary: #5b5eac;
-    --color-error: #ae2b2b;
-    --color-success: #6c9438;
+    --color-error: #f9a4a4d6;
+    --color-error-text: #610707;
+    --color-success: #baf08492;
     --border-radius: 4px;
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -91,18 +92,20 @@ body {
 }
 
 .form__input--error {
-    color: var(--color-error);
-    border-color: var(--color-error);
+    color: var(--color-error-text);
+    border-color: var(--color-error-text);
+    background-color:var(--color-error);
 }
 
 .form__input-error-message {
     margin-top: 0.5rem;
     font-size: 1.0rem;
-    color: var(--color-error);
+    color: #bc4a4a;
 }
 .form__input--success {
-    color: var(--color-success);
-    border-color: var(--color-success);
+    color: #094510;
+    border-color: #08a103;
+    background-color: var(--color-success);
 }
 
 .form__input-success-message {
